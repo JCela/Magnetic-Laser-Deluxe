@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Beam
+  - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1484391249
+    locked: 0
+  - name: Enemies
+    uniqueID: 3051786669
+    locked: 0
+  - name: Player
+    uniqueID: 1801233249
+    locked: 0
+  - name: Beam
+    uniqueID: 1008387207
     locked: 0
