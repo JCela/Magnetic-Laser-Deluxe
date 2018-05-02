@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -9,10 +10,8 @@ public class PlayerScript : MonoBehaviour {
 	Rigidbody2D myRigidbody;
 
 	public GameObject healthText;
-	public GameObject scoreText;
 
 	public int lives;
-	public int score;
 
 	public float moveSpeed = 1.0f;
 
@@ -38,7 +37,7 @@ public class PlayerScript : MonoBehaviour {
 		Move ();
 		LookAtCursor ();
 		Shoot ();
-		UpdateScoreText ();
+		//UpdateScoreText ();
 	}
 
 	void Move(){
@@ -86,10 +85,21 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	void Death(){
+	void OnTriggerEnter2D (Collider2D collisionInfo){
+		if (collisionInfo.gameObject.tag == "Laser") {
+			lives -= 1;
+			healthText.GetComponent<Text> ().text = "Health: " + lives;
+			if (lives <= 0) {
+				Death ();
+			}
+		}
 	}
 
-	void UpdateScoreText(){
-		scoreText.GetComponent<Text> ().text = "Score: " + score;
+	void Death(){
+		SceneManager.LoadScene ("GameEnd");	
 	}
+
+	//void UpdateScoreText(){
+	//	scoreText.GetComponent<Text> ().text = "Score: " + score;
+	//}
 }
