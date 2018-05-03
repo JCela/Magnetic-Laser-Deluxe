@@ -31,7 +31,7 @@ public class StartScreenScript : MonoBehaviour {
 
             yield return new WaitForSeconds(1f);
                 
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main",LoadSceneMode.Single);
         
     }
 }
