@@ -14,6 +14,7 @@ public class EventScript : MonoBehaviour {
 	public float roundDuration;
 	public GameObject roundText;
 	List <string> spawnData = new List<string>();
+    
 
 	void Awake () {
 		DontDestroyOnLoad (this);
@@ -34,6 +35,7 @@ public class EventScript : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "Main") {
 			RoundTimer ();
 			UpdateScoreText ();
+            
 		}
 	}
 
@@ -43,10 +45,11 @@ public class EventScript : MonoBehaviour {
 			if (round != 0 && round != 1) {
 				score += 1000;
 			}
-			NextRound ();
+            NextRound ();
 			roundTimer = roundDuration;
+            
 		}
-		roundText.GetComponent<Text> ().text = "Next Wave: \n" + roundTimer.ToString ("0.0");
+		roundText.GetComponent<Text> ().text = "  " + roundTimer.ToString ("0.0");
 	}
 
 	void NextRound(){
@@ -108,6 +111,8 @@ public class EventScript : MonoBehaviour {
 	}
 
 	void UpdateScoreText(){
-		scoreText.GetComponent<Text> ().text = "Score: " + score;
+		scoreText.GetComponent<Text> ().text = " " + score;
 	}
+
+  
 }

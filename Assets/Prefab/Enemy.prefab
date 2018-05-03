@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 82475128410473592}
+  PushAudio: {fileID: 8300000, guid: a278dff60aa066c43ae805467fade85d, type: 3}
   moveSpeed: 10
   magneticCharge: 1
   positiveSprite: {fileID: 21300000, guid: c836fa5efa7d49a4b8891dbcc6e22eb6, type: 3}
