@@ -21,7 +21,11 @@ public class ResultsScript : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKey (KeyCode.Space)) {
-			SceneManager.LoadScene ("Main");
+			SceneManager.LoadScene ("Start");
+			eventScript.score = 0;
+			eventScript.round = 0;
+			eventScript.roundTimer = 0;
 		}
+
 	}
 }

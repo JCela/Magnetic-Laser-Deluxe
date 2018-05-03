@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour {
 	GameObject player;
 	PlayerScript playerScript;
 	EventScript eventScript;
+	public AudioSource EnemyDeath;
 
 	public float moveSpeed;
 	public int magneticCharge;
@@ -70,12 +71,22 @@ public class EnemyScript : MonoBehaviour {
 		if (collisionInfo.gameObject.tag == "Laser") {
 			if (collisionInfo.gameObject.name == "LaserLeft") {
 				if (magneticCharge == 1) {
+					eventScript.score += 200;
+					EnemyDeath.Play ();
+				}
+				if (magneticCharge == -1) {
 					eventScript.score += 100;
+					EnemyDeath.Play ();
 				}
 			}
 			if (collisionInfo.gameObject.name == "LaserRight") {
 				if (magneticCharge == -1) {
+					eventScript.score += 200;
+					EnemyDeath.Play ();
+				}
+				if (magneticCharge == 1) {
 					eventScript.score += 100;
+					EnemyDeath.Play ();
 				}
 			}
 			Destroy (this.gameObject);

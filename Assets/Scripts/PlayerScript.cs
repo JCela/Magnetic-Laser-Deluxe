@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
 
 	SpriteRenderer mySpriteRenderer;
 	Rigidbody2D myRigidbody;
+	public AudioSource shootAudio;
 
 	public GameObject healthText;
 
@@ -28,7 +29,7 @@ public class PlayerScript : MonoBehaviour {
 	void Awake() {
 		mySpriteRenderer = GetComponent<SpriteRenderer> ();
 		myRigidbody = GetComponent<Rigidbody2D> ();
-		lives = 3;
+		lives = 5;
 		healthText.GetComponent<Text> ().text = "Health: "+ lives;
 	}
 
@@ -56,21 +57,28 @@ public class PlayerScript : MonoBehaviour {
 	void LookAtCursor(){
 		transform.up = cursorPosition - transform.position;
 	}
+
 	void Shoot(){
 		if (Input.GetMouseButton (0)) {
 			mySpriteRenderer.sprite = shootPositive;
 			beam.SetActive (true);
 			beam.GetComponent<SpriteRenderer> ().color = new Color (0, 0, 1, 0.2f);
 			magneticCharge = 1;
+			//shootAudio.Play ();
+
 		} else if (Input.GetMouseButton (1)) {
 			mySpriteRenderer.sprite = shootNegative;
 			beam.SetActive (true);
 			beam.GetComponent<SpriteRenderer> ().color = new Color (1, 0, 0, 0.2f);
 			magneticCharge = -1;
+			//shootAudio.Play ();
+
 		} else {
 			mySpriteRenderer.sprite = idle;
 			beam.SetActive (false);
 			magneticCharge = 0;
+
+
 		}
 	}
 
